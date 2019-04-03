@@ -51,10 +51,11 @@ class Directions:
 
 
 class Entity:
-    def __init__(self, room, x, y, graphic=None, color=None, name=None, description=None, interactions=None):
+    def __init__(self, room, x, y, ID=None, graphic=None, color=None, name=None, description=None, interactions=None):
         self.room = room
         self.x = x
         self.y = y
+        self.ID = ID
         self.graphic = graphic
         self.color = color
         self.name = name
@@ -62,8 +63,12 @@ class Entity:
         self.interactions = interactions
         self.game = self.room.game
 
-    def set(self, graphic, definition):
-        self.graphic = graphic
+    def set(self, ID, definition):
+        if(definition.get("graphic") is None):
+            self.graphic = ID
+        else:
+            self.graphic = definition["graphic"]
+        self.ID = ID
         self.color = getattr(Bg, definition["color"])
         self.name = definition["name"]
         self.description = definition["description"]
@@ -73,8 +78,8 @@ class Entity:
         if self.interactions:
             action = None
 
-            if item is not None and item.graphic in self.interactions:
-                action = self.interactions[item.graphic]
+            if item is not None and item.ID in self.interactions:
+                action = self.interactions[item.ID]
             elif item is None and "no-item" in self.interactions:
                 action = self.interactions["no-item"]
 
@@ -92,10 +97,10 @@ class Entity:
                         self.set(transform, Game.config["entities"][transform])
 
                 if "pickup" in action:
-                    player.inventory[self.graphic] = self
+                    player.inventory[self.ID] = self
 
                 if item is not None and action.get("remove_from_inventory", False) == True :
-                    del player.inventory[item.graphic]
+                    del player.inventory[item.ID]
 
                 if "move_to_room" in action:
                     player.change_room(self.game.rooms[action["move_to_room"]])
@@ -115,8 +120,8 @@ class Entity:
 
 
 class Mobile(Entity):
-    def __init__(self, room, x, y, graphic, color):
-        Entity.__init__(self, room, x, y, graphic, color)
+    def __init__(self, room, x, y, ID, graphic, color):
+        Entity.__init__(self, room, x, y, ID, graphic, color)
 
     def change_room(self, room):
         from_room_number = self.room.number
@@ -142,7 +147,7 @@ class Mobile(Entity):
 
 class Player(Mobile):
     def __init__(self, room, x, y):
-        Mobile.__init__(self, room, x, y, "P", Bg.blue)
+        Mobile.__init__(self, room, x, y, "P", "P", Bg.blue)
         self.inventory = {}
 
     def draw_inventory(self):
@@ -172,7 +177,7 @@ class Player(Mobile):
 
 class Wall(Entity):
     def __init__(self, room, x, y):
-        Entity.__init__(self, room, x, y, " ", Bg.black)
+        Entity.__init__(self, room, x, y, " ", " ", Bg.black)
 
 
 class Game:
@@ -223,7 +228,7 @@ class Game:
         print("\t- muovi con W A S D")
         nearby_entities = self.player.get_nearby_entities()
         for entity in nearby_entities:
-            print("\t- {}: {}; interagisci con {}".format(entity.name, entity.description, entity))
+            print("\t- {}: {}; interagisci con {} tramite {}".format(entity.name, entity.description, entity, entity.ID))
             for inventory_entity in self.player.inventory.values():
                 print("\t- usa {} con {} con {}{}".format(inventory_entity.name, entity.name, inventory_entity, entity))
 
@@ -248,7 +253,7 @@ class Game:
                 action = action[1]
 
             for entity in nearby_entities:
-                if action == entity.graphic:
+                if action == entity.ID:
                     entity.interact(item)
                     input("premi un tasto per continuare...")
                     break

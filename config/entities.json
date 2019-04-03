@@ -58,6 +58,7 @@
     },
     "1": {
         "name": "porta",
+        "graphic": " ",
         "description": "e' una porta",
         "color": "blue",
         "interactions": {
