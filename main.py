@@ -89,6 +89,17 @@ class Entity:
                 if "message" in action:
                     print(action["message"])
 
+                if "input-transform" in action:
+                    if input() == action["input"]:
+                        transform = action["input-transform"]
+                        if transform == " ":
+                            self.room.entities.remove(self)
+                        else:
+                            self.set(transform, Game.config["entities"][transform])
+                        print(action["input-ok"])
+                    else:
+                        print(action["input-wrong"])
+
                 if "transform" in action:
                     transform = action["transform"]
                     if transform == " ":

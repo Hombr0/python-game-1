@@ -3,7 +3,16 @@
         "mobile": true,
         "name": "mobile",
         "color": "red",
-        "description": "mi muovo"
+        "description": "mi muovo",
+        "interactions": {
+            "no-item": {
+                "message": "Inserisci il codice di accesso per richiedere la chiave",
+                "input-transform": "K",
+                "input": "3476",
+                "input-ok": "Hai ottenuto la chiave",
+                "input-wrong": "Il codice è sbagliato"
+            }
+        }
     },
     "O": {
         "name": "coccinella",
