@@ -137,8 +137,9 @@ class Mobile(Entity):
     def __init__(self, room, x, y, ID=None, graphic=None, color=None):
         Entity.__init__(self, room, x, y, ID, graphic, color)
 
-    def change_room(self, room):
-        from_room_number = self.room.number
+    def change_room(self, room, from_room_number=None):
+        if from_room_number is None:
+            from_room_number = self.room.number
         self.room = room
         for entity in self.room.entities:
             if entity.ID == str(from_room_number):
@@ -151,19 +152,27 @@ class Mobile(Entity):
     def move(self, direction):
         if direction == Directions.N and self.y > 0 and self.room.get_entity_at_coords(self.x, self.y - 1) is None:
             self.y -= 1
+            if self.room.get_teletransport_at_coords(self.x, self.y) is not None:
+                self.change_room(self.game.get_current_room(), self.game.get_current_room().number-1)
         elif direction == Directions.S and self.y < self.room.h - 1 and self.room.get_entity_at_coords(self.x, self.y + 1) is None:
             self.y += 1
+            if self.room.get_teletransport_at_coords(self.x, self.y) is not None:
+                self.change_room(self.game.get_current_room(), self.game.get_current_room().number-1)
         elif direction == Directions.W and self.x > 0 and self.room.get_entity_at_coords(self.x - 1, self.y) is None:
             self.x -= 1
+            if self.room.get_teletransport_at_coords(self.x, self.y) is not None:
+                self.change_room(self.game.get_current_room(), self.game.get_current_room().number-1)
         elif direction == Directions.E and self.x < self.room.w - 1 and self.room.get_entity_at_coords(self.x + 1, self.y) is None:
             self.x += 1
+            if self.room.get_teletransport_at_coords(self.x, self.y) is not None:
+                self.change_room(self.game.get_current_room(), self.game.get_current_room().number-1)
     def get_nearby_entities(self):
         nearby_entities = []
         for y in range(-1, 2):
             for x in range(-1, 2):
                 if not x == y == 0:
                     entity = self.room.get_entity_at_coords(self.x + x, self.y + y)
-                    if entity and type(entity) is not Wall:
+                    if entity and type(entity) is not Wall and type(entity) is not Teletransport:
                         nearby_entities.append(entity)
 
         return nearby_entities
@@ -189,6 +198,11 @@ class Player(Mobile):
 
 
 class Wall(Entity):
+    def __init__(self, room, x, y):
+        Entity.__init__(self, room, x, y, " ", " ", Bg.black)
+
+
+class Teletransport(Entity):
     def __init__(self, room, x, y):
         Entity.__init__(self, room, x, y, " ", " ", Bg.black)
 
@@ -229,7 +243,7 @@ class Game:
     def move_mobiles(self):
         mobiles = []
         for x in self.get_current_room().entities:
-            if x.__class__.__name__ == "Mobile" and x not in self.player.get_nearby_entities():
+            if type(x) is Mobile and x not in self.player.get_nearby_entities():
                 x.move(randint(0, 3))
 
     def update(self):
@@ -305,6 +319,8 @@ class Room:
                 char = rows[y][x].upper()
                 if char == "#":
                     self.entities.append(Wall(self, x, y))
+                elif char == "*":
+                    self.entities.append(Teletransport(self, x, y))
                 elif char in Game.config["entities"]:
                     if Game.config["entities"][char].get("mobile"):
                         e = Mobile(self, x, y)
@@ -313,17 +329,26 @@ class Room:
                     e.set(char, Game.config["entities"][char])
                     self.entities.append(e)
 
-    def get_entity_at_coords(self, x, y):
+    def get_entity_at_coords(self, x, y, full=False):
         for e in self.entities:
             if e.x == x and e.y == y:
-                return e
+                if full == True:
+                    return e
+                elif type(e) is not Teletransport:
+                    return e
+
+    def get_teletransport_at_coords(self, x, y):
+        for e in self.entities:
+            if e.x == x and e.y == y:
+                if type(e) is Teletransport:
+                    return e
 
     def draw(self):
         print(self.name)
         print(self.description)
         for y in range(self.h):
             for x in range(self.w):
-                e = self.get_entity_at_coords(x, y)
+                e = self.get_entity_at_coords(x, y, True)
                 if e:
                     print(e, end="")
                 else:
