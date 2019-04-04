@@ -96,6 +96,9 @@ class Entity:
                     else:
                         self.set(transform, Game.config["entities"][transform])
 
+                if "change-room-color" in action:
+                    self.game.get_current_room().color = getattr(Bg, action["change-room-color"])
+
                 if "pickup" in action:
                     player.inventory[self.ID] = self
 
@@ -127,7 +130,7 @@ class Mobile(Entity):
         from_room_number = self.room.number
         self.room = room
         for entity in self.room.entities:
-            if entity.graphic == str(from_room_number):
+            if entity.ID == str(from_room_number):
                 self.x = entity.x
                 self.y = entity.y
                 break
@@ -228,7 +231,10 @@ class Game:
         print("\t- muovi con W A S D")
         nearby_entities = self.player.get_nearby_entities()
         for entity in nearby_entities:
-            print("\t- {}: {}; interagisci con {} tramite {}".format(entity.name, entity.description, entity, entity.ID))
+            if entity.graphic == entity.ID:
+                print("\t- {}: {}; interagisci con {}".format(entity.name, entity.description, entity))
+            else:
+                print("\t- {}: {}; interagisci con {} tramite {}".format(entity.name, entity.description, entity, entity.ID))
             for inventory_entity in self.player.inventory.values():
                 print("\t- usa {} con {} con {}{}".format(inventory_entity.name, entity.name, inventory_entity, entity))
 

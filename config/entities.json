@@ -192,7 +192,8 @@
         "description": "e' un interruttore posizionato su ACCESO",
         "color": "black",
         "interactions": {
-            "no-item": { 
+            "no-item": {
+                "change-room-color": "white",
                 "message": "lo premi",
                 "transform": "-"
             }
@@ -205,6 +206,7 @@
         "color": "black",
         "interactions": {
             "no-item": { 
+                "change-room-color": "black",
                 "message": "lo premi",
                 "transform": "+"
             }
