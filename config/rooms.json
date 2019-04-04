@@ -1,14 +1,14 @@
 {
     "0": {
-        "name": "Sala",
+        "name": "Camera di Morty",
         "description": "Questo luogo e' abbastanza accogliente nonostante il senso di claustrofobia che ti trasmette",
         "color": "white"
     },
 
     "1": {
-        "name": "Cucina",
+        "name": "Sgabuzzino",
         "description": "E' tutto molto disordinato. Sembra che nessuno abbia riordinato da molto tempo",
-        "color": "red"
+        "color": "black"
     },
     
     "2": {

@@ -1,19 +1,34 @@
 {
+    "T": {
+        "name": "tappeto",
+        "color": "blue",
+        "description": "C'è un tappeto"
+    },
     "M": {
         "mobile": true,
-        "name": "mobile",
+        "name": "mamma",
         "color": "red",
-        "description": "mi muovo",
+        "description": "Ciao, sono la mamma"
+    },
+    "P": {
+        "name": "cassaforte",
+        "description": "È una cassaforte chiusa",
+        "color": "green",
         "interactions": {
-            "no-item": {
-                "message": "Inserisci il codice di accesso per richiedere la chiave",
-                "input-transform": "K",
-                "input": "3476",
-                "input-ok": "Hai ottenuto la chiave",
-                "input-wrong": "Il codice è sbagliato"
+            "K": {
+                "message": "la chiave entra perfettamente nella serratura; la giri",
+                "transform": "V",
+                "remove_from_inventory": true
             }
         }
     },
+    "Q": {
+        "name": "quadro elettrico",
+        "description": "Si tratta di un quadro elettrico",
+        "color": "blue"
+    },
+
+
     "O": {
         "name": "coccinella",
         "color": "red",
@@ -102,30 +117,6 @@
             "no-item": {
                 "message": "si apre",
                 "move_to_room": 0
-            }
-        }
-    },
-    "Q": {
-        "name": "quadro",
-        "description": "e' proprio un bel quadro",
-        "color": "blue",
-        "interactions": {
-            "no-item": {
-                "message": "spostando il quadro ti accorgi che dietro nasconte una cassaforte",
-                "transform": "F"
-            }
-        }
-    },
-
-    "F": {
-        "name": "cassaforte",
-        "description": "e' una cassaforte chiusa",
-        "color": "yellow",
-        "interactions": {
-            "K": {
-                "message": "la chiave entra perfettamente nella serratura; la giri",
-                "transform": "V",
-                "remove_from_inventory": true
             }
         }
     },
