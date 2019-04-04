@@ -1,4 +1,10 @@
 {
+    "M": {
+        "mobile": true,
+        "name": "mobile",
+        "color": "red",
+        "description": "mi muovo"
+    },
     "O": {
         "name": "coccinella",
         "color": "red",

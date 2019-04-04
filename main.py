@@ -1,6 +1,6 @@
 import json
 from os import system
-from random import choice
+from random import choice, randint
 import sys
 
 WRONG_INTERACTION_RESPONSES = [
@@ -123,7 +123,7 @@ class Entity:
 
 
 class Mobile(Entity):
-    def __init__(self, room, x, y, ID, graphic, color):
+    def __init__(self, room, x, y, ID=None, graphic=None, color=None):
         Entity.__init__(self, room, x, y, ID, graphic, color)
 
     def change_room(self, room):
@@ -146,6 +146,16 @@ class Mobile(Entity):
             self.x -= 1
         elif direction == Directions.E and self.x < self.room.w - 1 and self.room.get_entity_at_coords(self.x + 1, self.y) is None:
             self.x += 1
+    def get_nearby_entities(self):
+        nearby_entities = []
+        for y in range(-1, 2):
+            for x in range(-1, 2):
+                if not x == y == 0:
+                    entity = self.room.get_entity_at_coords(self.x + x, self.y + y)
+                    if entity and type(entity) is not Wall:
+                        nearby_entities.append(entity)
+
+        return nearby_entities
 
 
 class Player(Mobile):
@@ -165,17 +175,6 @@ class Player(Mobile):
         # self.room.number
         self.room = room
         # todo set player coords based on previous room
-
-    def get_nearby_entities(self):
-        nearby_entities = []
-        for y in range(-1, 2):
-            for x in range(-1, 2):
-                if not x == y == 0:
-                    entity = self.room.get_entity_at_coords(self.x + x, self.y + y)
-                    if entity and type(entity) is not Wall:
-                        nearby_entities.append(entity)
-
-        return nearby_entities
 
 
 class Wall(Entity):
@@ -216,6 +215,12 @@ class Game:
         input()
         exit()
 
+    def move_mobiles(self):
+        mobiles = []
+        for x in self.get_current_room().entities:
+            if x.__class__.__name__ == "Mobile" and x not in self.player.get_nearby_entities():
+                x.move(randint(0, 3))
+
     def update(self):
         if IS_WINDOWS:
             system("cls")
@@ -243,12 +248,16 @@ class Game:
         action = input().upper()
         if action == "W":
             self.player.move(Directions.N)
+            self.move_mobiles()
         elif action == "S":
             self.player.move(Directions.S)
+            self.move_mobiles()
         elif action == "A":
             self.player.move(Directions.W)
+            self.move_mobiles()
         elif action == "D":
             self.player.move(Directions.E)
+            self.move_mobiles()
         elif action == "QUIT":
             quit()
         else:
@@ -286,7 +295,10 @@ class Room:
                 if char == "#":
                     self.entities.append(Wall(self, x, y))
                 elif char in Game.config["entities"]:
-                    e = Entity(self, x, y)
+                    if Game.config["entities"][char].get("mobile"):
+                        e = Mobile(self, x, y)
+                    else:
+                        e = Entity(self, x, y)
                     e.set(char, Game.config["entities"][char])
                     self.entities.append(e)
 
