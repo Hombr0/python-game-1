@@ -1,12 +1,5 @@
-{
-    "T": {
-        "name": "tappeto",
-        "color": "blue",
-        "description": "C'è un tappeto"
-    },
 
     "M": {
-        "mobile": true,
         "name": "mamma",
         "color": "red",
         "description": "dove pensi di andare? riordina immediatamente la tua stanza!",
@@ -63,13 +56,8 @@
 
     "C": {
         "name": "carburante per sparaporte",
-        "description": "Senza di questo la sparaporte è a secco",
-        "color": "green",
-        "interactions": {
-            "no-item": {
-                "message": "hai raccolto : carburante per sparaporte",
-            }
-        }
+        "description": "Senza questo la sparaporte è a secco",
+        "color": "green",    
     },
 
     "V": {
@@ -77,6 +65,33 @@
         "description": "Permette di compiere viaggi interdimensionali",
         "color": "orange",
     },
+
+    "E": {
+        "name": "cronologia sparaporte",
+        "description": "Permette di risalire ai luoghi visitati con la sparaporte",
+        "color": "orange",
+    },
+
+    "K": {
+        "name": "codice misterioso",
+        "description": "E' un numero di 7 cifre: 5165456",
+        "color": "pink",
+    },
+
+    "H": {
+        "name": "chiave misteriosa",
+        "description": "Chissà cosa apre",
+        "color": "orange",
+    },
+
+    "U": {
+        "name": "riordinatore 9000",
+        "description": "Sembra essere una delle solite strane invenzioni di Rick",
+        "color": "orange",
+    },
+
+
+
 
 
 
