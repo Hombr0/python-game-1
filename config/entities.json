@@ -8,7 +8,7 @@
         "mobile": true,
         "name": "mamma",
         "color": "red",
-        "description": "dove pensi di andare? riordina immediatamente la tua stanza!"
+        "description": "dove pensi di andare? riordina immediatamente la tua stanza!",
         "interactions": {
             "U": {
                 "message": "bravo, hai riordinato la camera",
