@@ -25,7 +25,8 @@
         "interactions":{
             "no-item":{
                 "message": "L'hai raccolto",
-                "pick-up": true
+                "transform": " ",
+                "pickup": true
             }
         }
     },
@@ -36,6 +37,7 @@
         "color": "red",
         "interactions":{
             "no-item":{
+                "message": "Inserisci il codice",
                 "input-transform": "8",
                 "input": "1539",
                 "input-ok": "Codice corretto, hai trovato un passaggio nella cassaforte",
@@ -89,13 +91,27 @@
     "C": {
         "name": "carburante per sparaporte",
         "description": "Senza questo la sparaporte e' a secco",
-        "color": "green"  
+        "color": "green",
+        "interactions":{
+            "no-item":{
+                "message": "L'hai raccolto",
+                "transform": " ",
+                "pickup": true
+            }
+        }
     },
 
     "V": {
         "name": "sparaporte di Rich",
         "description": "Permette di compiere viaggi interdimensionali",
-        "color": "cyan"
+        "color": "cyan",
+        "interactions":{
+            "no-item":{
+                "message": "L'hai raccolto",
+                "transform": " ",
+                "pickup": true
+            }
+        }
     },
 
     "E": {
@@ -113,13 +129,27 @@
     "H": {
         "name": "chiave misteriosa",
         "description": "Chissa' cosa apre",
-        "color": "cyan"
+        "color": "cyan",
+        "interactions":{
+            "no-item":{
+                "message": "L'hai raccolto",
+                "transform": " ",
+                "pickup": true
+            }
+        }
     },
 
     "U": {
         "name": "riordinatore 9000",
         "description": "Sembra essere una delle solite strane invenzioni di Rick",
-        "color": "cyan"
+        "color": "cyan",
+        "interactions":{
+            "no-item":{
+                "message": "L'hai raccolto",
+                "transform": " ",
+                "pickup": true
+            }
+        }
     },
 
     "B": {
@@ -127,9 +157,9 @@
         "description": "Niente da fare...non funziona",
         "color": "cyan",
         "interactions":{
-            "B":{
+            "G":{
                 "message": "Hai riparato il traduttore",
-                "transform": "P",
+                "transform": "I",
                 "remove_from_inventory": true
             }
         }
@@ -141,7 +171,9 @@
         "color": "cyan",
         "interactions":{
             "no-item":{
-                "pick-up": true
+                "message": "L'hai raccolto",
+                "transform": " ",
+                "pickup": true
             }
         }
     },
@@ -153,7 +185,7 @@
         "description": "-oweweweonietweweweosas-...impossibile comprendere cio' che dice, servirebbe il traduttore di Rick",
         "interactions": {
             "I": {
-                "message": "bravo, hai riordinato la camera",
+                "message": "Finalmente qualcuno riesce a comprendermi! Puoi passare",
                 "transform": " ",
                 "remove_from_inventory": true
             }
@@ -163,7 +195,14 @@
     "J": {
         "name": "Uranio di Rick",
         "description": "Uranio altamente radioattivo",
-        "color": "cyan"
+        "color": "cyan",
+        "interactions":{
+            "no-item":{
+                "message": "L'hai raccolto",
+                "transform": " ",
+                "pickup": true
+            }
+        }
     },
 
     "O": {
