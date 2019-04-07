@@ -42,7 +42,7 @@
         "color": "magenta",
         "interactions": {
             "no-item": {
-                "message": "ma scusa... cosa ti aspetti di fare esattamente con l'idrogeno..."
+                "message": "sembra esserci qualcosa dietro questo quadro",
                 "transform": "K"
             }
         }
