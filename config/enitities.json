@@ -90,18 +90,71 @@
         "color": "orange",
     },
 
+    "B": {
+        "name": "traduttore rotto di Rick",
+        "description": "Niente da fare...non funziona",
+        "color": "orange",
+    },
+
+    "G": {
+        "name": "cacciavite",
+        "description": "cacciavite a croce",
+        "color": "red",
+        "interactions": {
+            "B": {
+                "message": "Traduttore aggiustato!!",
+                "transform": "I",
+                "remove_from_inventory": true
+            }
+        }
+    },
+
+    "I": {
+        "name": "traduttore di Rick",
+        "description": "E capace di tradurre qualsiasi lingua aliena, persino l'owoweiano",
+        "color": "orange",
+    },
+
+
     "T": {
         "name": "Alieno",
         "color": "red",
         "description": "-oweweweonietweweweosas-...impossibile comprendere ciò che dice, servirebbe il traduttore di Rick",
         "interactions": {
-            "U": {
+            "I": {
                 "message": "bravo, hai riordinato la camera",
                 "transform": " ",
                 "remove_from_inventory": true
             }
-        }    
+        }  
     },
+
+    "J": {
+        "name": "Uranio di Rick",
+        "description": "Uranio altamente radioattivo",
+        "color": "orange",
+    },
+
+    "O": {
+        "name": "Porta all'uranio",
+        "color": "red",
+        "description": "Senza l'uranio questa non funziona",
+        "interactions": {
+            "J": {
+                "message": "Si è aperta la porta",
+                "transform": "8",
+                "remove_from_inventory": true
+            }
+        }  
+    },
+
+    "R": {
+        "name": "Rick",
+        "description": "Finalmente mi hai trovato eh",
+        "color": "magenta",
+    },
+
+
 
 
 
