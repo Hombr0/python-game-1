@@ -2,24 +2,24 @@
     "0": {
         "name": "Camera di Morty",
         "description": "Ti trovi nella tua camera",
-        "color": "black"
+        "color": "white"
     },
 
     "1": {
         "name": "Sgabuzzino",
-        "description": "Qua è dove mamma tiene gli elettrodomestici",
-        "color": "black"
+        "description": "Qua e' dove mamma tiene gli elettrodomestici",
+        "color": "white"
     },
     
     "2": {
         "name": "Laboratorio di Rick",
         "description": "Qua avvengono tutti gli esperimenti del nonno Rick",
-        "color": "black"
+        "color": "white"
     },
     "3": {
         "name": "Camera di Summer",
         "description": "Stanza dove quella pazza di mia sorella trascorre gran parte del suo tempo",
-        "color": "black"
+        "color": "white"
     },
     "4": {
         "name": "Pianeta alieno",
@@ -33,22 +33,22 @@
     },
     "6": {
         "name": "Pollaio alieno",
-        "description": "Questo posto è strano",
-        "color": "black"
+        "description": "Questo posto e' strano",
+        "color": "white"
     },
     "7": {
         "name": "stanza appartenente a owewewe",
-        "description": "Questo posto è strano",
-        "color": "black"
+        "description": "Questo posto e' strano",
+        "color": "white"
     },
     "8": {
         "name": "Palestra aliena",
-        "description": "Questo posto è strano",
-        "color": "black"
+        "description": "Questo posto e' strano",
+        "color": "white"
     },
     "9": {
         "name": "Prigione aliena",
-        "description": "Rick è vicino!",
-        "color": "Black"
-    },
+        "description": "Rick e' vicino!",
+        "color": "black"
+    }
 }

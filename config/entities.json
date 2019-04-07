@@ -1,4 +1,4 @@
-
+{
     "M": {
         "name": "mamma",
         "color": "red",
@@ -12,14 +12,28 @@
         }    
     },
 
+    "Q": {
+        "name":"cassaforte",
+        "description": "questa e' una cassaforte con combinazione",
+        "color": "red",
+        "interactions":{
+            "no-item":{
+                "input-transform": "8",
+                "input": "1539",
+                "input-ok": "Codice corretto, hai trovato un passaggio nella cassaforte",
+                "input-wrong": "Codice non corretto, non si apre"
+            }
+        }
+    },
+
     "P": {
         "name": "cassaforte",
-        "description": "È una cassaforte chiusa",
+        "description": "e' una cassaforte chiusa",
         "color": "green",
         "interactions": {
             "H": {
                 "message": "la chiave entra perfettamente nella serratura, hai trovato : sparaporte di Rich",
-                "transform": "V",
+                "transform": "V"
             }
         }
     },
@@ -43,83 +57,70 @@
         "interactions": {
             "K": {
                 "message": "true code...Benvenuto Rich Sanchez ; hai trovato : cronologia della sparaporte",
-                "transform": "E",
+                "transform": "E"
             }
         }
     },
 
     "L": {
         "name": "Libreria",
-        "color": "brown",
+        "color": "magenta",
         "description": "Libreria di Summer"
     },
 
     "C": {
         "name": "carburante per sparaporte",
-        "description": "Senza questo la sparaporte è a secco",
-        "color": "green",    
+        "description": "Senza questo la sparaporte e' a secco",
+        "color": "green"  
     },
 
     "V": {
         "name": "sparaporte di Rich",
         "description": "Permette di compiere viaggi interdimensionali",
-        "color": "orange",
+        "color": "cyan"
     },
 
     "E": {
         "name": "cronologia sparaporte",
         "description": "Permette di risalire ai luoghi visitati con la sparaporte",
-        "color": "orange",
+        "color": "cyan"
     },
 
     "K": {
         "name": "codice misterioso",
         "description": "E' un numero di 7 cifre: 5165456",
-        "color": "pink",
+        "color": "pink"
     },
 
     "H": {
         "name": "chiave misteriosa",
-        "description": "Chissà cosa apre",
-        "color": "orange",
+        "description": "Chissa' cosa apre",
+        "color": "cyan"
     },
 
     "U": {
         "name": "riordinatore 9000",
         "description": "Sembra essere una delle solite strane invenzioni di Rick",
-        "color": "orange",
+        "color": "cyan"
     },
 
     "B": {
         "name": "traduttore rotto di Rick",
         "description": "Niente da fare...non funziona",
-        "color": "orange",
-    },
-
-    "G": {
-        "name": "cacciavite",
-        "description": "cacciavite a croce",
-        "color": "red",
-        "interactions": {
-            "B": {
-                "message": "Traduttore aggiustato!!",
-                "transform": "I",
-                "remove_from_inventory": true
-            }
-        }
+        "color": "cyan"
     },
 
     "I": {
         "name": "traduttore di Rick",
         "description": "E capace di tradurre qualsiasi lingua aliena, persino l'owoweiano",
-        "color": "orange",
+        "color": "cyan"
     },
 
 
     "T": {
         "name": "Alieno",
         "color": "red",
-        "description": "-oweweweonietweweweosas-...impossibile comprendere ciò che dice, servirebbe il traduttore di Rick",
+        "description": "-oweweweonietweweweosas-...impossibile comprendere cio' che dice, servirebbe il traduttore di Rick",
         "interactions": {
             "I": {
                 "message": "bravo, hai riordinato la camera",
@@ -132,7 +133,7 @@
     "J": {
         "name": "Uranio di Rick",
         "description": "Uranio altamente radioattivo",
-        "color": "orange",
+        "color": "cyan"
     },
 
     "O": {
@@ -141,7 +142,7 @@
         "description": "Senza l'uranio questa non funziona",
         "interactions": {
             "J": {
-                "message": "Si è aperta la porta",
+                "message": "Si e' aperta la porta",
                 "transform": "8",
                 "remove_from_inventory": true
             }
@@ -154,11 +155,23 @@
         "color": "magenta",
         "interactions": {
             "no-item": {
-                "message": "Hai trovato Rick, hai vinto",
+                "message": "Hai trovato Rick, hai vinto"
             }
         }
     },
 
+    "0": {
+        "name": "porta",
+        "graphic": " ",
+        "description": "e' una porta",
+        "color": "blue",
+        "interactions": {
+            "no-item": {
+                "message": "si apre",
+                "move_to_room": 0
+            }
+        }
+    },
 
     "1": {
         "name": "porta",
@@ -247,7 +260,7 @@
     "8": {
         "name": "porta",
         "graphic": " ",
-        "description": "e' una porta",
+        "description": "e' un passaggio nascosto",
         "color": "blue",
         "interactions": {
             "no-item": {
