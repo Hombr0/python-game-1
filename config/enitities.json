@@ -90,6 +90,19 @@
         "color": "orange",
     },
 
+    "T": {
+        "name": "Alieno",
+        "color": "red",
+        "description": "-oweweweonietweweweosas-...impossibile comprendere ciò che dice, servirebbe il traduttore di Rick",
+        "interactions": {
+            "U": {
+                "message": "bravo, hai riordinato la camera",
+                "transform": " ",
+                "remove_from_inventory": true
+            }
+        }    
+    },
+
 
 
 
