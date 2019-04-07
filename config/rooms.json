@@ -1,19 +1,44 @@
 {
     "0": {
         "name": "Camera di Morty",
-        "description": "Questo luogo e' abbastanza accogliente nonostante il senso di claustrofobia che ti trasmette",
-        "color": "white"
+        "description": "Ti trovi nella tua camera",
+        "color": "black"
     },
 
     "1": {
         "name": "Sgabuzzino",
-        "description": "E' tutto molto disordinato. Sembra che nessuno abbia riordinato da molto tempo",
+        "description": "Qua è dove mamma tiene gli elettrodomestici",
         "color": "black"
     },
     
     "2": {
-        "name": "Sogno",
-        "description": "sei evidentemente in un sogno",
+        "name": "Laboratorio di Rick",
+        "description": "Qua avvengono tutti gli esperimenti del nonno Rick",
         "color": "black"
-    }
+    },
+    "3": {
+        "name": "Camera di Summer",
+        "description": "Stanza dove quella pazza di mia sorella trascorre gran parte del suo tempo",
+        "color": "black"
+    },
+    "4": {
+        "name": "Pianeta alieno",
+        "description": "Sei su in pianeta alineno...attento a dove metti i piedi",
+        "color": "black"
+    },
+    "5": {
+        "name": "Stanza segreta",
+        "description": "E una stanza buia",
+        "color": "black"
+    },
+    "6": {
+        "name": "Pollaio alieno",
+        "description": "Questo posto è strano",
+        "color": "black"
+    },
+    "7": {
+        "name": "Prigione aliena",
+        "description": "Rick è vicino!",
+        "color": "Black"
+    },
 }
