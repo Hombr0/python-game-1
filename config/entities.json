@@ -11,6 +11,24 @@
             }
         }    
     },
+    "%":{
+        "name": "Snuffles",
+        "graphic": "C",
+        "color":"yellow",
+        "description":"il tuo cane",
+        "mobile": true
+    },
+    "G":{
+        "name": "cacciavite",
+        "description": "e' un cacciavite",
+        "color": "green",
+        "interactions":{
+            "no-item":{
+                "message": "L'hai raccolto",
+                "pick-up": true
+            }
+        }
+    },
 
     "Q": {
         "name":"cassaforte",
@@ -107,13 +125,25 @@
     "B": {
         "name": "traduttore rotto di Rick",
         "description": "Niente da fare...non funziona",
-        "color": "cyan"
+        "color": "cyan",
+        "interactions":{
+            "B":{
+                "message": "Hai riparato il traduttore",
+                "transform": "P",
+                "remove_from_inventory": true
+            }
+        }
     },
 
     "I": {
         "name": "traduttore di Rick",
         "description": "E capace di tradurre qualsiasi lingua aliena, persino l'owoweiano",
-        "color": "cyan"
+        "color": "cyan",
+        "interactions":{
+            "no-item":{
+                "pick-up": true
+            }
+        }
     },
 
 
@@ -292,7 +322,7 @@
         "color": "black",
         "interactions": {
             "no-item": {
-                "change-room-color": "white",
+                "change-room-color": "black",
                 "message": "lo premi",
                 "transform": "-"
             }
@@ -305,7 +335,7 @@
         "color": "black",
         "interactions": {
             "no-item": { 
-                "change-room-color": "black",
+                "change-room-color": "white",
                 "message": "lo premi",
                 "transform": "+"
             }
